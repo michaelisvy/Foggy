@@ -12,9 +12,14 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.framework.version>3.1.0.RELEASE</spring.framework.version>
-		<hibernate.version>4.1.0.Final</hibernate.version>
+		<spring.framework.version>3.1.1.RELEASE</spring.framework.version>
+		<hibernate.version>4.1.1.Final</hibernate.version>
 		<aspectj.version>1.6.11</aspectj.version>
+		<slf4j.version>1.5.8</slf4j.version>
+		<junit.version>4.10</junit.version>
+		<joda.version>2.0</joda.version>
+		<log4j.version>1.2.14</log4j.version>
+		<twitter4j.version>2.2.5</twitter4j.version>
 	</properties>
 
 	<build>
@@ -41,10 +46,6 @@
 					</sourceIncludes>
 				</configuration>
 			</plugin>
-			<!--<plugin> <artifactId>maven-war-plugin</artifactId> <version>2.1.1</version> 
-				<configuration> <packagingExcludes>WEB-INF/lib/*.jar</packagingExcludes> 
-				<archive> <manifest> <addClasspath>true</addClasspath> <classpathPrefix>lib/</classpathPrefix> 
-				</manifest> </archive> </configuration> </plugin> -->
 		</plugins>
 	</build>
 
@@ -73,23 +74,7 @@
 			<version>1.1</version>
 		</dependency>
 
-		<!-- Dependency Injection -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-beans</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.framework.version}</version>
-		</dependency>
+		<!-- Dependency Injection and transactions-->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
@@ -101,17 +86,13 @@
 		<dependency>
 			<groupId>cglib</groupId>
 			<artifactId>cglib</artifactId>
-			<version>2.1</version>
+			<version>2.2.2</version>
+			<scope>runtime</scope>
 		</dependency>
 
 
 
 		<!-- Object Relational mapping -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
@@ -126,12 +107,12 @@
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-jcl</artifactId>
-			<version>1.5.8</version>
+			<version>${slf4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
-			<version>1.5.8</version>
+			<version>${slf4j.version}</version>
 		</dependency>
 
 		<!-- Database -->
@@ -157,7 +138,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -170,20 +151,20 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.14</version>
+			<version>${log4j.version}</version>
 		</dependency>
 
 		<!-- Twitter4J -->
 		<dependency>
 			<groupId>org.twitter4j</groupId>
 			<artifactId>twitter4j-core</artifactId>
-			<version>2.2.5</version>
+			<version>${twitter4j.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
-			<version>2.0</version>
+			<version>${joda.version}</version>
 		</dependency>
 
 		<dependency>
@@ -202,11 +183,7 @@
 			<groupId>org.jsoup</groupId>
 			<artifactId>jsoup</artifactId>
 			<version>1.6.1</version>
-		</dependency>
-		<dependency>
-    		<groupId>org.springframework.social</groupId>
-    		<artifactId>spring-social-weibo</artifactId>
-    		<version>1.0.1-SNAPSHOT</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

@@ -1,2 +1,1 @@
-## should ignore .class files
-*.class
+*/target/*
