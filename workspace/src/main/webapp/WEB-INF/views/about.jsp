@@ -25,7 +25,7 @@
 			<h2>AQI levels</h2>
 			<div class="row">
 				<div class="span8">
-					<table>
+					<table class="table table-striped table-bordered">
 						<thead>
 							<tr>
 								<th>Air Quality Index (AQI) Values</th>

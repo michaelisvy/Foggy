@@ -46,7 +46,7 @@ body {
 	min-height: 70px;
 }
 
-.alert-message {
+.alert {
 	font-size: 20px;
 	width: 70%;
 	text-align: center;
@@ -72,7 +72,7 @@ body {
 	border-left: 1px solid #eee;
 }
 
-.topbar .btn {
+.nav .btn {
 	border: 0;
 }
 

@@ -204,6 +204,11 @@ public class AirController {
 		return "about";
 	}
 	
+	@RequestMapping("/form/{city}")
+	public String dataForm(@PathVariable("city") String city)   {
+		return "dataForm";
+	}
+	
 	/**
 	 * sample output: "Time,10:00,11:00,12:00,13:00,14:00,15:00,16:00,17:00 AQI,176,193,120,50,193,193,176,193"
 	 * @param list

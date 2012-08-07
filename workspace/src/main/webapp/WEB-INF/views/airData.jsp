@@ -25,25 +25,24 @@
 <body>
 	<jsp:include page="menu.jsp" />
 	<div class="container">
-
 		<div class="content">
 			<div class="page-header-small">
-				<div class="alert-message warning">
+				<div class="alert alert-info">
 					${title}
 				</div>
 			</div>
-			<div class="span14" style="margin-left: 0px;">
-				<div class="span10" style="margin-left: 0px;">
+			<div class="span12" style="margin-left: 0px;">
+				<div class="span7" style="margin-left: 0px;">
 					<div id="chart" style="width: 100%; height: 300px; align: left"></div>
 				</div>
-				<div class="span4">
+				<div class="span3">
 					<br/><br/><html:img url="images/${city}.jpg" />
 				</div>
 			</div>
 			<div class="row">
-		<div class="span14" style="margin-left: 0px;">
-					<div class="span10">
-					<table class="zebra-striped" id="dataTable">
+		<div class="span12" style="margin-left: 0px;">
+					<div class="span8">
+					<table class="table table-striped table-bordered" id="dataTable">
 						<thead>
 							<tr>
 								<th class="yellow header headerSortDown">${label}</th>

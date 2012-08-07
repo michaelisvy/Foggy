@@ -1,13 +1,10 @@
 package org.beijingair.model;
 
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Type;
@@ -47,12 +44,14 @@ public class TwitterRawMessage {
 	}
 	
 	public TweetState getState() { //Latest Hour
-		if (this.message.contains("Past 24hr")) {
+		String uncapMsg = this.message.toLowerCase();
+		
+		if (uncapMsg.contains("past 24hr")) {
 			return TweetState.AVERAGE_24;
-		} else if (this.message.contains("Latest Hour")) {
+		} else if (uncapMsg.contains("latest hour")) {
 			return TweetState.LATEST_HOUR;
 		}
-		else if (this.message.contains("Due to") || this.message.contains("PM2.5; no data")) {
+		else if (uncapMsg.contains("due to") || uncapMsg.contains("pm2.5; no data") || uncapMsg.contains("no reading") ) {
 			return TweetState.NO_DATA;
 		}
 		else return TweetState.OK;

@@ -82,7 +82,6 @@ public class AirDataInfo implements Comparable {
 				StringTokenizer tokenizerDate = new StringTokenizer(temp, " ");
 				dateStr = tokenizerDate.nextToken().trim();
 				timeStr = tokenizerDate.nextToken().trim();
-				System.out.println("aaa");
 			}
 			// contains a ";" : 10-07-2011; 11:00
 			else {

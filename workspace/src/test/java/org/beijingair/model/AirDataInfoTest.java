@@ -42,4 +42,14 @@ public class AirDataInfoTest {
 		assertEquals(airDataInfo, null);
 		assertEquals(rawMessage.getState(), TweetState.NO_DATA);		
 	}
+	
+	//
+	@Test
+	public void buildFromRawTextNoReading() {
+		String entry = "08-03-2012 16:00; PM2.5; No Reading; city: Beijing";
+		TwitterRawMessage rawMessage = new TwitterRawMessage(new DateTime(), 1000, entry, 0, "Beijing");
+		AirDataInfo airDataInfo = AirDataInfo.buildAirDataInfo(rawMessage);
+		assertEquals(airDataInfo, null);
+		assertEquals(rawMessage.getState(), TweetState.NO_DATA);		
+	}
 }

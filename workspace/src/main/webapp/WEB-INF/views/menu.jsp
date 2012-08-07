@@ -4,10 +4,10 @@
 <script>
 	$('#topbar').dropdown()
 </script>
-<div class="topbar">
-	<div class="fill">
+<div class="navbar">
+	<div class="navbar-inner">
 		<div class="container">
-			<ul class="tabs">
+			<ul class="nav">
 				<li class="active"><html:link url="data/today/beijing" label="Home"/></li>
 				<li class="dropdown" data-dropdown="dropdown"><a href="#"
 					class="dropdown-toggle">Beijing</a>

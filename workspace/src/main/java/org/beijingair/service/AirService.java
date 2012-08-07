@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -250,10 +251,13 @@ public class AirService {
 	@Transactional(readOnly = true)
 	double findAqiDifferenceComparedToTheDayBefore(String city, DateTime date, int currentAqi) {
 		Session session = this.sessionFactory.getCurrentSession();
-		String queryStr= "select avg(airQualityIndex) from AirDataInfo where date=:date";
+		String queryStr= "select avg(airQualityIndex) from AirDataInfo where date>=:dateBefore and date<=:dateAfter";
 		DateTime oneDayBeforeDate = date.minusDays(1);
+		Date dateBefore = oneDayBeforeDate.minusHours(2).toDate();
+		Date dateAfter = oneDayBeforeDate.plusHours(2).toDate();
 		Query query = session.createQuery(queryStr);
-		query.setDate("date", oneDayBeforeDate.toDate());
+		query.setDate("dateBefore", dateBefore);
+		query.setDate("dateAfter", dateAfter);
 		Double oneDayBeforeAqi = (Double) query.uniqueResult();
 		return currentAqi - oneDayBeforeAqi;
 	}
