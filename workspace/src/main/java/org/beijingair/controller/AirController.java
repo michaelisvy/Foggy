@@ -145,7 +145,7 @@ public class AirController {
 		model.addAttribute("dateFormat", "dd-MM-yyyy");		
 		model.addAttribute("city", capCity);
 		model.addAttribute("chartData", buildChartData(list, 8, "Day", "dd-MMM"));
-		return "airData";
+		return "airDataTable";
 	}
 	
 	@RequestMapping("/weekly/{city}")
@@ -158,7 +158,7 @@ public class AirController {
 		model.addAttribute("dateFormat", "dd-MM-yyyy");
 		model.addAttribute("city", StringUtils.capitalize(city));
 		model.addAttribute("chartData", buildChartData(list, 8, "Week", "dd-MMM"));
-		return "airData";
+		return "airDataTable";
 	}
 	
 	@RequestMapping("/monthly/{city}")
@@ -171,7 +171,7 @@ public class AirController {
 		model.addAttribute("dateFormat", "yyyy - MM");		
 		model.addAttribute("city", StringUtils.capitalize(city));
 		model.addAttribute("chartData", buildChartData(list, 8, "Month", "MMMM"));
-		return "airData";
+		return "airDataTable";
 	}
 	
 

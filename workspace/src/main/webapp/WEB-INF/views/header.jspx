@@ -1,0 +1,25 @@
+<jsp:root version="2.0"   	
+		xmlns:jsp="http://java.sun.com/JSP/Page"  
+		xmlns:html="urn:jsptagdir:/WEB-INF/tags">
+
+	<meta charset="utf-8"/>
+	<meta name="author" content=""/>
+	<!-- Google analytics -->  
+	<meta name="google-site-verification" content="oBOzU3a7PMunfqZl7RhmxVs3aYvXheYHC6hlWDbJbhE" />
+	
+	<!-- Google search meta -->  
+	<meta name="description" content="Beijing Air Quality statistics from 2009 to 2012. We've also added statistics about Shanghai and Guangzhou"/>
+	
+	<!-- CSS -->  
+	<html:stylesheet url="css/bootstrap.css" />	
+	<html:stylesheet url="css/foggybeijing.css" />
+	
+	<!-- JavaScript -->  
+	<html:script url="js/jquery-1.6.2.js"/>
+	<html:script url="js/jquery.tablesorter.min.js"/>
+	<html:script url="js/bootstrap-dropdown.js"/>
+	<html:script url="js/bootstrap-twipsy.js"/>
+	<html:script url="js/highcharts.src.js"/>
+	<html:script url="js/foggybeijing-charts-1.0.js"/>
+
+</jsp:root>

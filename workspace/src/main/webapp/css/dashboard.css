@@ -1,0 +1,59 @@
+<style type="text/css">
+ul.dashboard-colors,ul.dashboard-data {
+	  	margin: 0 0 10px 3px;
+	}
+
+	ul.dashboard-colors li,ul.dashboard-data li {
+	  	height:30px;
+	  	display:inline;
+	  	width:100%;
+	  	float:left;
+	  	color: #424242;
+	}
+	
+	/* COLORS */
+	ul.dashboard-colors {
+	  	width:48px;
+	}
+	
+	ul.dashboard-colors li{
+	  	width:50%;
+	}
+	li.dashboard-first  { 
+		width:35px; 
+		vertical-align:top;
+		font-size:13px;
+	} 	
+	
+	/* DATA */
+	ul.dashboard-data {
+	  	padding:0px;
+	}
+	
+	#dashboard-column-left { 
+	 	top:20;
+	 	left:0;
+	 	width:60px;
+	 	height:240px;
+	 	position:relative;
+	 	display: inline-block;
+	} 
+	
+	#dashboard-column-right { 
+		position:relative;
+		display: inline-block;
+	 	top:20;
+	 	height:240px;
+	 	width:190px;
+	} 
+	
+	.dashboard-round {
+	border-radius: 4px 4px 4px 4px;
+	background-color:#FFF;
+	font-size:30px;
+	line-height: 80px;
+	text-align:center;
+	color:black;
+	padding: 1px 1px;
+	}
+</style>

@@ -18,16 +18,20 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StopWatch;
 
-@ContextConfiguration(locations={"infrastructure-config.xml"})
+@ContextConfiguration(locations={"classpath:infrastructure-config.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 @ActiveProfiles("production")
 public class AirServiceTest {
 	
 	private static Logger  logger = Logger.getLogger(AirServiceTest.class);
-
 	@Autowired
 	private AirService airService;
 	
+	@Test @Transactional
+	public void findAirDataInfoNowShanghai() {
+		AirDataInfo info = this.airService.findLatestAirDataInfo("Shanghai");
+		System.out.println(info);
+	}
 	
 	@Test @Transactional
 	public void findAirDataInfoNow() {

@@ -51,7 +51,17 @@ public class TwitterRawMessage {
 		} else if (uncapMsg.contains("latest hour")) {
 			return TweetState.LATEST_HOUR;
 		}
-		else if (uncapMsg.contains("due to") || uncapMsg.contains("pm2.5; no data") || uncapMsg.contains("no reading") ) {
+		else if (uncapMsg.endsWith("Ozone; no data") ) {
+			// 11-11-2011; 13:00; PM2.5; 96.0; 169; Unhealthy // Ozone; no data
+			return TweetState.OK;
+		}
+		else if (uncapMsg.contains("no data") && !uncapMsg.contains("ozone; no data") ) {
+			// 11-11-2011; 13:00; PM2.5; 96.0; 169; Unhealthy // Ozone; no data
+			return TweetState.NO_DATA;
+		}
+		else if (uncapMsg.contains("due to") || uncapMsg.contains("no reading") ) {
+			// includes "pm2.5; no data " and "pm2.5; no data;"
+			// 08-18-2012 00:00 to 08-18-2012 23:59; PM2.5 24hr avg; No Data city: Beijing
 			return TweetState.NO_DATA;
 		}
 		else return TweetState.OK;

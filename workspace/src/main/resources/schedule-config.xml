@@ -6,5 +6,5 @@
 
 	<task:scheduler id="scheduler" pool-size="5" />
 	<task:annotation-driven scheduler="scheduler" />
-	<bean class="org.beijingair.batch.BeijingAirBatch" />
+	<bean class="org.beijingair.batch.BatchLauncher" />
 </beans> 

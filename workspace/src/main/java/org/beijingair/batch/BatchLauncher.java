@@ -6,11 +6,17 @@ import org.beijingair.service.TwitterAccessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 
-public class BeijingAirBatch {
+/**
+ * Triggers data update every one minute for Beijing, Shanghai and Guangzhou
+ * So every time a tweet is published, foggybeijing should be updated more than one minute later
+ * @author misvy
+ *
+ */
+public class BatchLauncher {
 	@Autowired
 	private AirService airService;
 	
-	private static Logger logger = Logger.getLogger(BeijingAirBatch.class);
+	private static Logger logger = Logger.getLogger(BatchLauncher.class);
 
 	
 	/**
@@ -38,6 +44,16 @@ public class BeijingAirBatch {
 			logger.info("processLatestData Guangzhou succeeded");
 		} catch (TwitterAccessException e) {
 			logger.error("processLatestData Guangzhou failed");
+		}	
+	}
+	
+	@Scheduled(fixedRate=60000)
+	public void processLatestDataShanghai() throws Exception {
+		try {
+			airService.processLatestData("Shanghai");
+			logger.info("processLatestData Shanghai succeeded");
+		} catch (TwitterAccessException e) {
+			logger.error("processLatestData Shanghai failed");
 		}	
 	}
 

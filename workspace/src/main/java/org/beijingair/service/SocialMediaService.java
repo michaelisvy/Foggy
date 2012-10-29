@@ -61,7 +61,6 @@ public class SocialMediaService {
 			tweetList = new ArrayList<Tweet>();
 			tweetList = result.getTweets();
 		} catch (TwitterException te) {
-			// TODO Auto-generated catch block
 			logger.error("exception occured when searching for tweet " + message.getTwitterMessageId());
 			throw new RuntimeException(te);
 		}
@@ -90,7 +89,7 @@ public class SocialMediaService {
 			query.setRpp(500);
 			
 			// sinceId only added if the tweet is still available (that is, if it is less than 7 days old)
-			if (stillAvailableTweet(message))
+			if (message != null && stillAvailableTweet(message))
 				query.setSinceId(message.getTwitterMessageId());
 
 			List<Tweet> tweetList = new ArrayList<Tweet>(); 

@@ -1,0 +1,55 @@
+<html xmlns:jsp="http://java.sun.com/JSP/Page"
+	  xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	  xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	  xmlns:joda="http://www.joda.org/joda/time/tags"
+	  xmlns:html="urn:jsptagdir:/WEB-INF/tags">
+
+	<jsp:directive.attribute name="cssFileName" required="false" rtexprvalue="true" description="name of css file (without the path)"/>
+	<jsp:directive.attribute name="title" required="false" rtexprvalue="true" description="title of the page"/>
+
+	<head>
+		<meta name="og:title" content="Foggy status of the day" />
+		<meta name="og:description" content="Current level of pollution in Beijing" />
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="author" content=""/>
+		<!-- Google analytics -->  
+		<meta name="google-site-verification" content="oBOzU3a7PMunfqZl7RhmxVs3aYvXheYHC6hlWDbJbhE" />
+		
+		<!-- Google search meta -->  
+		<meta name="description" content="Beijing Air Quality statistics from 2009 to 2012. We've also added statistics about Shanghai and Guangzhou"/>
+
+		<c:choose>
+            <c:when test="${url eq '#'}">
+				<title>${title}</title>
+            </c:when>
+            <c:otherwise>
+				<title>Foggy Beijing- Beijing Air Quality - Information about pollution in Beijing, Shanghai, Guangzhou</title>
+	        </c:otherwise>
+		</c:choose>
+				
+		<!-- CSS -->  
+		<html:stylesheet url="css/bootstrap.css" />	
+		<html:stylesheet url="css/foggybeijing.css" />
+		
+		<c:if test="${!empty cssFileName}">
+			<html:stylesheet url="css/${cssFileName}" />
+		</c:if>
+		
+		<!-- JavaScript -->  
+		<html:script url="js/jquery-1.6.2.js"/>
+		<html:script url="js/jquery.tablesorter.min.js"/>
+		<html:script url="js/bootstrap-dropdown.js"/>
+		<html:script url="js/highcharts.src.js"/>
+		<html:script url="js/foggybeijing-charts.js"/>
+	</head>
+	<body>
+		<div class="container">
+			<jsp:include page="../views/menu.jspx"/>	
+				<jsp:doBody />
+			<footer>
+				<html:script url="/js/addThis.js" />
+				<jsp:include page="../views/footer.jspx"/>
+			</footer>	
+		</div>
+	</body>
+</html>

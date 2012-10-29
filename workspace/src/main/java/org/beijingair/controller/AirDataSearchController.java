@@ -13,7 +13,7 @@ public class AirDataSearchController {
 	@RequestMapping(method=RequestMethod.GET, value="/search")
 	public String initForm(Model model) {
 		model.addAttribute("searchFormInfo", new SearchFormInfo());
-		return "search";
+		return "search.jsp";
 	}
 	
 	@RequestMapping(method=RequestMethod.POST, value="/search")
@@ -21,7 +21,7 @@ public class AirDataSearchController {
 		if (result.hasErrors())
 			return "search";
 		else
-			return "ok";
+			return "ok.jsp";
 	}
 	
 

@@ -1,0 +1,40 @@
+<jsp:root version="2.0"  xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:html="urn:jsptagdir:/WEB-INF/tags"
+	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	xmlns:joda="http://www.joda.org/joda/time/tags">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />	
+	
+	<html:mainLayout cssFileName="dashboard.css">
+		<html:mainScript chartData="${chartData}" /> 
+
+		<div class="content">
+			<div class="page-header-small">
+				<div class="alert-message warning">${city} Foggy Status of the Day</div>
+				<h3>
+					<joda:format value="${airDataInfoNow.date}" style="F-" />
+				</h3>
+			</div>
+			<div class="row">
+				<jsp:include page="air-dashboard.jspx" />
+				<div id="chart"
+					style="width: 280px; height: 280px; align: left; display: inline-block;"></div>
+				<div id="links" style="display: inline-block;">
+					<table class="invisible">
+						<tr>
+							<td>More links 
+								<br /> 
+								<html:link url="data/daily/${city}" label="More info about the past few days" /> 
+								<br /> 
+								<html:link url="data/weekly/${city}" label="Weekly average" /> 
+								<br /> 
+								<html:link url="data/monthly/${city}" label="Monthly average" /> 
+								<br />
+								<html:link url="data/yearly/${city}" label="Yearly average" />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</html:mainLayout>
+</jsp:root>

@@ -57,6 +57,7 @@ public class AirService {
 		citySearchTerms = new HashMap<String, String>();
 		citySearchTerms.put("Beijing", "from:BeijingAir");
 		citySearchTerms.put("Guangzhou", "from:Guangzhou_Air");
+		citySearchTerms.put("Shanghai", "from:CGShanghaiAir");
 	}
 
 	private static Logger logger = Logger.getLogger(AirService.class);
@@ -121,16 +122,20 @@ public class AirService {
 				.createQuery("from TwitterRawMessage where twitterMessageId= (select max(twitterMessageId) from TwitterRawMessage where city=:city)");
 		hibQuery.setString("city", city);
 		TwitterRawMessage message = (TwitterRawMessage) hibQuery.uniqueResult();
-		logger.debug("latest twitterMessageId: " + message.getTwitterMessageId() + "current city :" + city);
-
+		
 		twitter4j.Query twitterQuery = new twitter4j.Query(citySearchTerms.get(city));
-		twitterQuery.setSinceId(message.getTwitterMessageId());
+		// usually message not supposed to be null. But it was at least once when we added Shanghai for the first time		
+		if (message != null) {
+			twitterQuery.setSinceId(message.getTwitterMessageId());
+			logger.debug("latest twitterMessageId: " + message.getTwitterMessageId() + "current city :" + city);			
+		}
 		List<Tweet> tweets = this.socialMediaService.findTweetsbyQuery(twitterQuery, message);
 		persistAllRawMessagesFromTweets(tweets, city);
 	}
 
 	/**
-	 * Messages are only saved if they have a valid format
+	 * All RawMessages are persisted (no matters they are valid or not)
+	 * The selection will be made when they will be converted into AirDataInfo
 	 * 
 	 * @param tweetList
 	 */
@@ -154,11 +159,10 @@ public class AirService {
 	@Transactional
 	public void updateAllAirDataInfo(String city) {
 		Session session = sessionFactory.getCurrentSession();
-		checkDataConsistency(); // if data is not consistent, an exception is
-								// thrown and the AirDataInfo rows won't be
-								// created
-		Query query = session.createQuery("from TwitterRawMessage message where processed=:processed and city=:city");
-		query.setInteger("processed", 0);
+		checkDataConsistency(); // if number of rows is not consistent in the database, an exception is
+								// thrown and the AirDataInfo rows won't be created
+		Query query = session.createQuery("from TwitterRawMessage message where processed=:processed and city=:city");		
+		query.setInteger("processed", 0); // message that haven't been processed yet
 		query.setString("city", city);
 		List<TwitterRawMessage> twitterRawMessages = query.list();
 		List<AirDataInfo> airDataInfoList = new ArrayList<AirDataInfo>();

@@ -12,7 +12,6 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 
 /**
  * script used to import tweets that were copied and pasted manually from Google
- * 
  * @author misvy
  * 
  */
@@ -56,7 +55,6 @@ public class ImportDataBatch {
 		while (line != null) {
 			line = bufferedReader.readLine();
 			if ((line!=null && !line.equals("") && Character.isDigit(line.charAt(0)))) {
-				System.out.println(line);
 				bufferedWriter.write(line+"\n");
 			}
 		}

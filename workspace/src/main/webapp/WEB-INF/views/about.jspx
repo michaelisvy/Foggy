@@ -1,18 +1,11 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
-<html>
-<head>
-<title>Foggy Beijing - About</title>
-<%@include file="header.jsp"%>
-</head>
-<body>
-	<jsp:include page="menu.jsp" />
-	<div class="container">
+<jsp:root version="2.0"  xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:html="urn:jsptagdir:/WEB-INF/tags"
+	xmlns:joda="http://www.joda.org/joda/time/tags">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	
+<html:mainLayout>
 		<div class="content">
-
 			<h1>About Foggy Beijing</h1>
-			<a name="penguin"></a>
 			<p>
 				<span class="first-word">All</span> the data that we have used to
 				build this website comes from the US embassy via their now famous
@@ -25,14 +18,8 @@
 			<h2>AQI levels</h2>
 			<div class="row">
 				<div class="span8">
-					<table class="table table-striped table-bordered">
-						<thead>
-							<tr>
-								<th>Air Quality Index (AQI) Values</th>
-								<th>Levels of Health concern</th>
-							</tr>
-						</thead>
-						<tbody>
+					<html:staticTable cssClass="table table-striped table-bordered"
+						headerLabels="Air Quality Index (AQI) Values, Levels of Health concern">
 							<tr>
 								<td>0 to 50</td>
 								<td>Good</td>
@@ -57,8 +44,7 @@
 								<td>301 to 500</td>
 								<td>Hazardous</td>
 							</tr>
-						</tbody>
-					</table>
+					</html:staticTable>
 
 				</div>
 			</div>
@@ -84,11 +70,7 @@
 			You can reach out to us on <a href="mailto:foggybeijing@gmail.com">foggybeijing@gmail.com</a>.
 			Please use this email to report any issue or improvements that you would like
 			to see in foggybeijing.
-
-			<footer>
-				<%@include file="footer.jsp"%>		
-			</footer>
-		</div>
 	</div>
-</body>
-</html>
+</html:mainLayout>
+
+</jsp:root>

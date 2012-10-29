@@ -57,6 +57,7 @@ public class AirDataInfo implements Comparable {
 	 * @param twitterRawMessage
 	 *            sample text message: 10-07-2011; 11:00; PM2.5; 14.0; 45; Good
 	 *            // Ozone; no
+	 *            Messages such as "past 24hr" and "no data" are simply ignored
 	 * @return AirDataInfo
 	 */
 	public static AirDataInfo buildAirDataInfo(TwitterRawMessage twitterRawMessage) {

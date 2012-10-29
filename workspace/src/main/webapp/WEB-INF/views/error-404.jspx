@@ -1,0 +1,15 @@
+<jsp:root version="2.0"  xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:html="urn:jsptagdir:/WEB-INF/tags">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+
+	<html:mainLayout>
+
+		<div class="content">
+			<div class="page-header-small">
+				<div class="alert-message warning">
+					This page does not exist. Please click <html:link url="data/today/beijing" label="here"/> to go back to foggybeijing.
+				</div>
+			</div>
+		</div>
+	</html:mainLayout>
+</jsp:root>

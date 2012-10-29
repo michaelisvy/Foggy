@@ -1,3 +1,25 @@
+function displayYearDataChart(chartDataYears, chartDataMonthsAQI, chartDataMonthsPM25) {
+	var optionsYearly = chartOptions("column","chartYearly", "Beijing Air Pollution");		
+	parseData(optionsYearly, chartDataYears);						
+	var chartYearly = new Highcharts.Chart(optionsYearly);
+	
+	var optionsMonthlyAQI = chartOptions("line","chartMonthlyAQI", "Air Quality Index");		
+	parseData(optionsMonthlyAQI, chartDataMonthsAQI);						
+	var chartMonthlyAQI = new Highcharts.Chart(optionsMonthlyAQI);
+	
+	var optionsMonthlyPM25 = chartOptions("line","chartMonthlyPM25", "PM 2.5");		
+	parseData(optionsMonthlyPM25, chartDataMonthsPM25);						
+	var chartMonthlyPM25 = new Highcharts.Chart(optionsMonthlyPM25);	
+}
+
+
+function displayLineChart(chartData) {
+	var options = chartOptions("line","chart", "Air Pollution");		
+	parseData(options, chartData);						
+	var chartToday = new Highcharts.Chart(options);
+}		
+			
+
 function chartOptions(seriesType, chartName, chartText) {
 	var options = {
 			chart: {

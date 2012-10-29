@@ -1,0 +1,4 @@
+<div style="text-align: center" xmlns:html="urn:jsptagdir:/WEB-INF/tags">
+	<p><![CDATA[&copy;]]> foggy-beijing 2012</p>
+	<html:script url="js/footer.js"/>
+</div>

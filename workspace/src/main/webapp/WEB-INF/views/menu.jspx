@@ -1,5 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ taglib prefix="html" tagdir="/WEB-INF/tags" %>
+<div xmlns:html="urn:jsptagdir:/WEB-INF/tags">
 
 <script>
 	$('#topbar').dropdown()
@@ -8,9 +7,11 @@
 	<div class="navbar-inner">
 		<div class="container">
 			<ul class="nav">
-				<li class="active"><html:link url="data/today/beijing" label="Home"/></li>
-				<li class="dropdown" data-dropdown="dropdown"><a href="#"
-					class="dropdown-toggle">Beijing</a>
+				<li class="active">
+					<html:link url="data/today/beijing" label="Home"/>
+				</li>
+				<li class="dropdown" data-dropdown="dropdown">
+					<a href="#" class="dropdown-toggle">Beijing</a>
 					<ul class="dropdown-menu">
 						<li><html:link url="data/daily/beijing" label="Beijing these days"/></li>
 						<li><html:link url="data/weekly/beijing" label="Weekly average"/></li>
@@ -18,8 +19,15 @@
 						<li><html:link url="data/yearly/beijing" label="Yearly average"/></li>						
 					</ul>
 				</li>
-				<li class="dropdown" data-dropdown="dropdown"><a href="#"
-					class="dropdown-toggle">Guangzhou</a>
+				<li class="dropdown" data-dropdown="dropdown">
+					<a href="#" class="dropdown-toggle">Shanghai</a>
+					<ul class="dropdown-menu">
+						<li><html:link url="data/daily/shanghai" label="Shanghai these days"/></li>
+						<li><html:link url="data/weekly/shanghai" label="Weekly average"/></li>
+					</ul>
+				</li>
+				<li class="dropdown" data-dropdown="dropdown">
+					<html:link label="Guangzhou" url="#" cssClass="dropdown-toggle"/>
 					<ul class="dropdown-menu">
 						<li><html:link url="data/today/guangzhou" label="Guangzhou today"/></li>
 						<li><html:link url="data/daily/guangzhou" label="Daily average"/></li>
@@ -28,8 +36,8 @@
 					</ul>
 				</li>
 				<li class="active"><a href="http://www.foggybeijing.com/blog">Blog</a></li>
-				<li class="dropdown" data-dropdown="dropdown"><a href="#"
-					class="dropdown-toggle">About</a>
+				<li class="dropdown" data-dropdown="dropdown">
+					<a href="#" class="dropdown-toggle">About</a>
 					<ul class="dropdown-menu">
 						<li><html:link url="data/about" label="About Foggy Beijing"/></li>
 					</ul>
@@ -37,4 +45,6 @@
 			</ul>
 		</div>
 	</div>
+</div>
+
 </div>

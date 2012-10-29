@@ -1,0 +1,78 @@
+<jsp:root version="2.0"   	
+		xmlns:jsp="http://java.sun.com/JSP/Page"
+		xmlns:html="urn:jsptagdir:/WEB-INF/tags"
+	 	xmlns:c="http://java.sun.com/jsp/jstl/core" 
+	  	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt"
+	  	xmlns:joda="http://www.joda.org/joda/time/tags"
+	  	xmlns:spring="http://www.springframework.org/tags">
+
+
+	<div id="dashboard-column-left">
+	<ul class="dashboard-colors"> 
+		<li class="dashboard-first">500</li>	
+	  	<li style="background-color:${widgetInfo.colors[7]};">${widgetInfo.thermometer[7]}</li>
+	
+		<li class="dashboard-first">400</li>	
+	  	<li style="background-color:${widgetInfo.colors[6]};">${widgetInfo.thermometer[6]}</li>
+	
+		<li class="dashboard-first">300</li>	
+	  	<li style="background-color:${widgetInfo.colors[5]};">${widgetInfo.thermometer[5]}</li>
+	
+		<li class="dashboard-first">250</li>	
+	  	<li style="background-color:${widgetInfo.colors[4]};">${widgetInfo.thermometer[4]}</li>
+	
+		<li class="dashboard-first">200</li>	
+	  	<li style="background-color:${widgetInfo.colors[3]};">${widgetInfo.thermometer[3]}</li>
+	
+		<li class="dashboard-first">150</li>	
+	  	<li style="background-color:${widgetInfo.colors[2]};">${widgetInfo.thermometer[2]}</li>
+	
+		<li class="dashboard-first">100</li>	
+	  	<li style="background-color:${widgetInfo.colors[1]};">${widgetInfo.thermometer[1]}</li>
+	
+		<li class="dashboard-first">50</li>	
+	  	<li style="background-color:${widgetInfo.colors[0]};">${widgetInfo.thermometer[0]}</li>
+	</ul>
+	</div>
+	<div id="dashboard-column-right">
+	<ul class="dashboard-data">
+		<li>
+			<h2 style="text-align:justify;"><a href="http://www.foggybeijing.com" target="_top">Beijing Air</a></h2>
+		</li>
+		<li style="height:70px;">
+			<span class="dashboard-round">${airDataSummary.airDataInfo.airQualityIndex}<span style="font-size:10px">AQI</span>
+			</span> 
+			<![CDATA[&nbsp;]]>
+			<span class="dashboard-round">
+				<fmt:formatNumber maxFractionDigits="0">${airDataSummary.airDataInfo.fineParticleIndex}</fmt:formatNumber>
+				<span style="font-size:10px">PM2.5</span>
+			</span>
+		</li>
+		<li style="line-height:15px;">
+			<span class="label" style="${widgetInfo.labelStyle}">${airDataSummary.airDataInfo.capitalizedLabel}</span>
+		</li>	
+		<li>
+			updated: <joda:format value="${airDataSummary.airDataInfo.date}" style="SS" dateTimeZone="Europe/London"/>
+		</li>
+		<li style="line-height:15px;margin-top:0px; margin-bottom:20px;">
+			<p>
+			<spring:url value="/" var="contextPath"/>
+			<img src="${contextPath}/images/rss.gif" style="display: block; vertical-align: top;  margin-right: 8px; float: left;"/> 
+			<span style="display: block; overflow: auto; width:140px;text-align: justify;"> 
+			<a href="${airDataSummary.wordpressBlog.url}" target="_top">
+			Latest blog: ${airDataSummary.wordpressBlog.title}</a>
+			</span>
+			</p>
+		</li>
+		<c:if test="${isWidget==true}">
+			<li style="line-height:35px;margin-top:10px;text-align: right;">
+				<p>
+				<span style="width:30px; overflow: auto; font-style:italic;"> 
+					Read more on  <a href="http://www.foggybeijing.com" target="_top"> Foggy Beijing</a>
+				</span>		
+				</p>
+			</li>
+		</c:if>
+		</ul>
+	</div>
+</jsp:root>

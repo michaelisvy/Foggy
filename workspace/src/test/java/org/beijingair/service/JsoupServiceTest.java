@@ -7,7 +7,6 @@ import org.junit.Test;
 
 public class JsoupServiceTest {
 	
-	@Test
 	public void test() throws Exception {
 		Document doc = Jsoup.connect("http://zx.bjmemc.com.cn/Charts/PM25.aspx").get();
 		Elements resultLinks = doc.select("html > body > form > div:eq(1) > table > tbody > tr:eq(1) > td > table > tbody");

@@ -1,0 +1,27 @@
+<jsp:root version="2.0"  xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:html="urn:jsptagdir:/WEB-INF/tags"
+	xmlns:joda="http://www.joda.org/joda/time/tags"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+
+	<html:mainLayout>
+		<style type="text/css">
+		ul, li { list-style-type: none; }
+		</style>
+			<c:url value="/data/search" var="searchUrl"/>
+			<form:form modelAttribute="searchFormInfo" action="${searchUrl}">
+			<ul>
+			<li><form:input path="start"/><form:errors cssClass="error" path="start" /></li>
+			<li><form:input path="end"/></li>
+			<li><form:select path="range">
+					<form:option label="days" value="1"/>
+					<form:option label="weeks" value="2"/>
+					<form:option label="months" value="3"/>
+				</form:select></li>
+			<li><button id="searchButton" type="submit">Submit</button></li>
+			</ul>			
+			</form:form>
+			
+		</div>
+	</html:mainLayout>

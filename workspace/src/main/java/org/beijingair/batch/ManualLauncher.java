@@ -2,8 +2,12 @@ package org.beijingair.batch;
 
 import org.beijingair.service.AirService;
 import org.springframework.context.support.GenericXmlApplicationContext;
-
-public class BeijingAirBatchStandalone {
+/**
+ * Only used when we need to trigger an update by hand
+ * @author misvy
+ *
+ */
+public class ManualLauncher {
 	
 	public static void main(String[] args) throws Exception {
 		GenericXmlApplicationContext applicationContext = new GenericXmlApplicationContext();
